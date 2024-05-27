@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "284406727070",
+    "firebase_url": "https://budgetbliss-a2cbd-default-rtdb.firebaseio.com",
+    "project_id": "budgetbliss-a2cbd",
+    "storage_bucket": "budgetbliss-a2cbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284406727070:android:cc0e1fc788911050b2568f",
+        "android_client_info": {
+          "package_name": "com.budgetbliss"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB25WXa07iersSPOMj9mXypHSdo7fRQCZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
