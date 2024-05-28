@@ -7,4 +7,6 @@ Email: jayaantara@gmail.com
 pass: password
 
 
+and also you can try light or dark mode and id or en translation base on phone setting, i think it not perfect yet
+
 
