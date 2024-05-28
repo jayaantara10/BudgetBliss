@@ -6,7 +6,7 @@ const Loading = () => {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <LottieView
-        source={require('../../../../assets/lottie/lottie_loading.json')}
+        source={require('../../../assets/lottie/lottie_loading.json')}
         style={{height: 56, width: 56}}
         autoPlay
         loop

@@ -2,7 +2,6 @@ import {View, Text, ViewStyle, ImageURISource, Animated} from 'react-native';
 import React, {useEffect, useRef} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {ParamNavigator} from '../../navigations/ParamNavigator';
-import SvgUri from 'react-native-svg-uri';
 import {useTheme} from '../../provider/ThemeProvider';
 import {TextStyle} from 'react-native';
 import TextView from '../../components/textViews/TextView';
@@ -11,6 +10,8 @@ import Spacer from '../../components/spacer/Spacer';
 import {useNavigation} from '@react-navigation/native';
 import Page from '../../components/container/Page';
 import {useAuth} from '../../provider/AuthProvder';
+import LogoLight from '../../../assets/vectors/ic_budget_bliss.svg';
+import LogoDark from '../../../assets/vectors/ic_budget_bliss_dark.svg';
 
 // Init navigation prop
 type SplashScreenNavigationProp = StackNavigationProp<ParamNavigator, 'Splash'>;
@@ -38,12 +39,6 @@ const SplashScreen = () => {
   const _quoteStyle: TextStyle = {
     textAlign: 'center',
   };
-
-  // Init logo
-  const _logo: ImageURISource =
-    colorScheme == 'dark'
-      ? require('../../../../assets/vectors/ic_budget_bliss_dark.svg')
-      : require('../../../../assets/vectors/ic_budget_bliss.svg');
 
   // Init Fade Animation reff
   const fadeAnimation = useRef(new Animated.Value(0)).current;
@@ -96,7 +91,11 @@ const SplashScreen = () => {
   return (
     <Page>
       <Animated.View style={_animatedStyle}>
-        <SvgUri width="100" height="100" source={_logo} />
+        {colorScheme === 'light' ? (
+          <LogoLight width="100" height="100" />
+        ) : (
+          <LogoDark width="100" height="100" />
+        )}
         <Spacer height={spacing.medium} />
         <TextView
           text={t('app_name')}

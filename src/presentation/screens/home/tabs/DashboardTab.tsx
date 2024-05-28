@@ -16,7 +16,6 @@ import {useOverlay} from '../../../provider/OverlayProvider';
 import ConfirmationBottomSheet from '../../../components/bottomSheets/ConfirmationBottomSheet';
 import TopAppbar from '../../../components/appbars/TopAppBar';
 import {useTranslation} from 'react-i18next';
-import SvgUri from 'react-native-svg-uri';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {ParamNavigator} from '../../../navigations/ParamNavigator';
 import Page from '../../../components/container/Page';
@@ -38,6 +37,10 @@ import {
 } from '../../../../core/utils/incomeUtils';
 import {formatRupiah} from '../../../../core/utils/curencyUtils';
 import DetailTransaction from '../section/DetailTransaction';
+import LogoLight from '../../../../assets/vectors/ic_budget_bliss.svg';
+import LogoDark from '../../../../assets/vectors/ic_budget_bliss_dark.svg';
+import TulipBlossom from '../../../../assets/vectors/tulip_blossom.svg';
+import TulipFlora from '../../../../assets/vectors/tulip_flora.svg';
 
 const DashboardTab = () => {
   // UI ==============================================================================================
@@ -101,12 +104,6 @@ const DashboardTab = () => {
     top: -width / 3 / 2,
     overflow: 'hidden',
   };
-
-  // Init logo
-  const _logo: ImageURISource =
-    colorScheme == 'dark'
-      ? require('../../../../../assets/vectors/ic_budget_bliss_dark.svg')
-      : require('../../../../../assets/vectors/ic_budget_bliss.svg');
 
   // Set logo container style
   const _logoContainerStyle: ViewStyle = {
@@ -335,27 +332,21 @@ const DashboardTab = () => {
             <View style={_cardTopLineStyle} />
             {/* Tulip 1 */}
             <View style={_tulip1Style}>
-              <SvgUri
-                width={160}
-                height={160}
-                source={require('../../../../../assets/vectors/tulip_blossom.svg')}
-                fill={colors.secondary}
-              />
+              <TulipBlossom width={160} height={160} fill={colors.secondary} />
             </View>
 
             {/* Tulip 2 */}
             <View style={_tulip2Style}>
-              <SvgUri
-                width={106}
-                height={106}
-                source={require('../../../../../assets/vectors/tulip_flora.svg')}
-                fill={colors.secondary}
-              />
+              <TulipFlora width={106} height={106} fill={colors.secondary} />
             </View>
 
             {/* Logo */}
             <View style={_logoContainerStyle}>
-              <SvgUri width={48} height={48} source={_logo} />
+              {colorScheme == 'light' ? (
+                <LogoLight width={48} height={48} />
+              ) : (
+                <LogoDark width={48} height={48} />
+              )}
             </View>
 
             {/* Text balance */}

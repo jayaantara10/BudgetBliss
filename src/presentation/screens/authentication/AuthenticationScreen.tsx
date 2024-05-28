@@ -6,7 +6,6 @@ import {useTranslation} from 'react-i18next';
 import {useTheme} from '../../provider/ThemeProvider';
 import {useNavigation} from '@react-navigation/native';
 import TextView from '../../components/textViews/TextView';
-import SvgUri from 'react-native-svg-uri';
 import Button from '../../components/buttons/Button';
 import Spacer from '../../components/spacer/Spacer';
 import TextField from '../../components/textFields/TextField';
@@ -18,6 +17,8 @@ import {UserServices} from '../../../infrasturcture/services/UserServices';
 import {isValidEmail} from '../../../core/utils/validationUtils';
 import AllertBottomSheet from '../../components/bottomSheets/AllertBottomSheet';
 import Loading from '../../components/loading/Loading';
+import LogoLight from '../../../assets/vectors/ic_budget_bliss.svg';
+import LogoDark from '../../../assets/vectors/ic_budget_bliss_dark.svg';
 
 // Init navigation prop
 export type AuthenticationScreenNavigationProp = StackNavigationProp<
@@ -57,7 +58,7 @@ const AuthenticationScreen = () => {
   const _welcomeTextStyle: TextStyle = {
     letterSpacing: 4,
     fontWeight: 'bold',
-    height: 96,
+    height: 80,
     textAlignVertical: 'center',
     color: colors.secondary,
   };
@@ -66,11 +67,6 @@ const AuthenticationScreen = () => {
   const _welcomeWordStyle: TextStyle = {
     color: colorScheme == 'dark' ? colors.onSurcface : colors.surface,
   };
-  // Init logo
-  const _logo: ImageURISource =
-    colorScheme == 'dark'
-      ? require('../../../../assets/vectors/ic_budget_bliss_dark.svg')
-      : require('../../../../assets/vectors/ic_budget_bliss.svg');
 
   // Init logo container style
   const _logoContainer: ViewStyle = {
@@ -183,7 +179,11 @@ const AuthenticationScreen = () => {
         {/* Logo And form login*/}
         <View style={_logoContainer}>
           {/* Logo */}
-          <SvgUri width="100" height="100" source={_logo} />
+          {colorScheme === 'light' ? (
+            <LogoLight width="100" height="100" />
+          ) : (
+            <LogoDark width="100" height="100" />
+          )}
           <Spacer height={spacing.small} />
           {/* App Name */}
           <TextView

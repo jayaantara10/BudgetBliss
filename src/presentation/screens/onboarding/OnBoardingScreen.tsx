@@ -15,7 +15,6 @@ import {useTheme} from '../../provider/ThemeProvider';
 import {useNavigation} from '@react-navigation/native';
 import PageIndicator from '../../components/indicators/PageIndicator';
 import Button from '../../components/buttons/Button';
-import SvgUri from 'react-native-svg-uri';
 import Page from '../../components/container/Page';
 import {useAuth} from '../../provider/AuthProvder';
 
@@ -41,19 +40,19 @@ const OnBoardingScreen = () => {
       id: '1',
       title: t('on_boarding_1.title'),
       description: t('on_boarding_1.description'),
-      illustrationSource: require('../../../../assets/lottie/lottie_business_deadline.json'),
+      illustrationSource: require('../../../assets/lottie/lottie_business_deadline.json'),
     },
     {
       id: '2',
       title: t('on_boarding_2.title'),
       description: t('on_boarding_2.description'),
-      illustrationSource: require('../../../../assets/lottie/lottie_business_sales_profit.json'),
+      illustrationSource: require('../../../assets/lottie/lottie_business_sales_profit.json'),
     },
     {
       id: '3',
       title: t('on_boarding_3.title'),
       description: t('on_boarding_3.description'),
-      illustrationSource: require('../../../../assets/lottie/lottie_business_target.json'),
+      illustrationSource: require('../../../assets/lottie/lottie_business_target.json'),
     },
   ];
 
@@ -63,12 +62,6 @@ const OnBoardingScreen = () => {
     justifyContent: 'center',
     alignItems: 'center',
   };
-
-  // Init logo
-  const _logo: ImageURISource =
-    colorScheme == 'dark'
-      ? require('../../../../assets/vectors/ic_budget_bliss_dark.svg')
-      : require('../../../../assets/vectors/ic_budget_bliss.svg');
 
   // init incicator and button container style
   const _indicatorContainerStyle: ViewStyle = {

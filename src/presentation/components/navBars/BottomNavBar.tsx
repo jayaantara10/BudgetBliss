@@ -8,7 +8,6 @@ import {
 import {useTheme} from '../../provider/ThemeProvider';
 import Ripple from 'react-native-material-ripple';
 import IconView from '../icons/IconView';
-import SvgUri from 'react-native-svg-uri';
 import {
   NavigationHelpers,
   ParamListBase,
@@ -19,6 +18,8 @@ import {
   BottomTabNavigationEventMap,
 } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import LottieView from 'lottie-react-native';
+import LogoLight from '../../../assets/vectors/ic_budget_bliss.svg';
+import LogoDark from '../../../assets/vectors/ic_budget_bliss_dark.svg';
 
 // Make alias for bottom nav props
 
@@ -35,7 +36,7 @@ const BottomNavBar = ({
   onAddPress,
 }: BottomNavBarProps) => {
   // Get theme
-  const {colors, spacing, radius, typography} = useTheme();
+  const {colors, spacing, radius, typography, colorScheme} = useTheme();
 
   // Get screen width
   const {width} = useWindowDimensions();
@@ -88,7 +89,7 @@ const BottomNavBar = ({
     justifyContent: 'center',
     height: _containerWidth / 5 - 16,
     width: _containerWidth / 5 - 16,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.surface,
     borderTopColor: colors.disabled,
   };
 
@@ -112,12 +113,12 @@ const BottomNavBar = ({
         // Set icon base on route name
         const icon =
           route.name == 'Dashboard'
-            ? require('../../../../assets/lottie/lottie_home.json')
+            ? require('../../../assets/lottie/lottie_home.json')
             : route.name == 'Planning'
-            ? require('../../../../assets/lottie/lottie_cheklist.json')
+            ? require('../../../assets/lottie/lottie_cheklist.json')
             : route.name == 'Insight'
-            ? require('../../../../assets/lottie/lottie_announcment.json')
-            : require('../../../../assets/lottie/lottie_filter_item.json');
+            ? require('../../../assets/lottie/lottie_announcment.json')
+            : require('../../../assets/lottie/lottie_filter_item.json');
 
         // detect focussed
         const isFocused = state.index === index;
@@ -210,12 +211,11 @@ const BottomNavBar = ({
           style={_addButtonRippleStyle}
           rippleColor={colors.onPrimary}
           onPress={onAddPress}>
-          <SvgUri
-            width="24"
-            height="24"
-            source={require('../../../../assets/vectors/ic_budget_bliss.svg')}
-            fill={colors.secondary}
-          />
+          {colorScheme == 'light' ? (
+            <LogoLight width="24" height="24" fill={colors.secondary} />
+          ) : (
+            <LogoDark width="24" height="24" fill={colors.secondary} />
+          )}
         </Ripple>
       </View>
     </View>

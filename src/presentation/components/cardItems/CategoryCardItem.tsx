@@ -22,8 +22,8 @@ const CategoryCardItem = ({item, onPress, isActive}: CategoryCardItemProps) => {
 
   // Init container style
   const _containerStyle: ViewStyle = {
-    width: 120,
-    height: 120,
+    width: 109,
+    height: 96,
     borderRadius: radius.small,
     overflow: 'hidden',
     backgroundColor: isActive ? colors.primary : undefined,

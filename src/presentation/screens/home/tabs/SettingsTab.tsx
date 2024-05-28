@@ -9,7 +9,6 @@ import {useOverlay} from '../../../provider/OverlayProvider';
 import ConfirmationBottomSheet from '../../../components/bottomSheets/ConfirmationBottomSheet';
 import TopAppbar from '../../../components/appbars/TopAppBar';
 import {useTranslation} from 'react-i18next';
-import SvgUri from 'react-native-svg-uri';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {ParamNavigator} from '../../../navigations/ParamNavigator';
 import Page from '../../../components/container/Page';
